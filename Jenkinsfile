@@ -2,7 +2,7 @@ node {
     checkout scm
     
     stage("Build and Publish Docker Image") {
-       docker.withRegistry('https://https://hub.docker.com/', 'docker_hub') {
+       docker.withRegistry('https://hub.docker.com/', 'docker_hub') {
 
         def customImage = docker.build("mdiakhate12/node-cicd:${env.BUILD_ID}")
 
