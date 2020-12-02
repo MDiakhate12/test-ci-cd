@@ -1,10 +1,14 @@
 node {
     checkout scm
     
+    environment {
+        BUILD_ID = 'latest'
+    }
+    
     stage("Build and Publish Docker Image") {
-       docker.withRegistry('https://hub.docker.com/', 'docker_hub') {
+       docker.withRegistry('', 'docker_hub') {
 
-        def customImage = docker.build("mdiakhate12/node-cicd:${env.BUILD_ID}")
+        def customImage = docker.build("mdiakhate12/node-cicd:${BUILD_ID}")
 
         /* Push the container to the custom Registry */
         customImage.push()
