@@ -9,6 +9,7 @@ node {
     }
 
     stage("Test code") {
+        sh 'npm install'
         sh 'npm test'
     }
     
