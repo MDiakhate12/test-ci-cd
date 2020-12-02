@@ -3,6 +3,9 @@ pipeline {
     stages {
         stage("unit tests") {
             steps {
+                sh "kubectl get pods --all-namespaces"
+                sh "kubeadm token list"
+                sh "npm install"
                 sh "npm test"
             }
         }
