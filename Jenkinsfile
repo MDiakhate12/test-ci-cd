@@ -12,8 +12,12 @@ node {
         def customImage = docker.build("mdiakhate12/node-cicd:${BUILD_ID}")
 
         /* Push the container to the custom Registry */
-        customImage.push()
+        customImage.push("${BUILD_ID}")
+        customImage.push("latest")
         } 
+    }
+    stage("Remove Docker Image From Local") {
+        sh "docker rmi mdiakhate12/node-cicd:${BUILD_ID}"
     }
     
     stage('Apply Kubernetes files') {
