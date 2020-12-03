@@ -23,7 +23,7 @@ node {
     }
     
     stage('Apply Kubernetes files') {
-        withKubeConfig([credentialsId: "$CREDENTIALS_ID", serverUrl: "$SERVER_URL"]) {
+        withKubeConfig([credentialsId: $CREDENTIALS_ID, serverUrl: $SERVER_URL]) {
             sh "kubectl apply -f $KUBERNETES_CONFIGURATION_FILE"
             sh 'kubectl get pods'
      }
