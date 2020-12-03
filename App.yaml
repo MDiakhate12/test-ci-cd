@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: node-cicd
-        image: mdiakhate12/node-cicd
+        image: mdiakhate12/node-cicd:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
