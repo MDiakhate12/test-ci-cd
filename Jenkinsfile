@@ -19,7 +19,7 @@ node {
     stage('Apply Kubernetes files') {
         withKubeConfig([credentialsId: 'kube_config_file', serverUrl: 'https://192.168.1.39:6443']) {
             sh "kubectl apply -f App.yaml"
-            sh 'kubectl get pods'
+            sh 'kubectl get pods -o wide'
      }
    }
 }
