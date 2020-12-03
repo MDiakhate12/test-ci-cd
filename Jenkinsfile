@@ -16,6 +16,9 @@ node {
         customImage.push("latest")
         } 
     }
+    stage("Remove Docker Image From Local") {
+        sh "docker rmi mdiakhate12/node-cicd:${BUILD_ID}"
+    }
     
     stage('Apply Kubernetes files') {
         withKubeConfig([credentialsId: 'kube_config_file', serverUrl: 'https://192.168.1.39:6443']) {
