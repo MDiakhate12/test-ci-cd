@@ -1,15 +1,15 @@
 body {
-  background-color: sandybrown;
-  color: maroon;
+  background-color: sandybrow;
+  color: purple;
   font-size: larger;
 }
 .jumbotron {
-  color: maroon;
+  color: purple;
 }
 
 .btn {
-  background-color: maroon;
-  border-color: maroon;
+  background-color: purple;
+  border-color: purple;
 }
 
 .btn:hover {
