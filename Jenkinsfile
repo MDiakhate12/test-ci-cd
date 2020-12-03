@@ -1,14 +1,8 @@
 node {
     checkout scm
-    
-    environment {
-        KUBERNETES_CONFIGURATION_FILE = 'App.yaml'
-        SERVER_URL = 'https://192.168.1.39:6443'
-        CREDENTIALS_ID = credentials('kube_config_file')
-    }
 
     stage("Test code") {
-        sh 'npm install'
+        // sh 'npm install'
         sh 'npm test'
     }
     
@@ -23,8 +17,8 @@ node {
     }
     
     stage('Apply Kubernetes files') {
-        withKubeConfig([credentialsId: $CREDENTIALS_ID, serverUrl: $SERVER_URL]) {
-            sh "kubectl apply -f $KUBERNETES_CONFIGURATION_FILE"
+        withKubeConfig([credentialsId: 'kube_config_file', serverUrl: 'https://192.168.1.39:6443']) {
+            sh "kubectl apply -f App.yaml"
             sh 'kubectl get pods'
      }
    }
