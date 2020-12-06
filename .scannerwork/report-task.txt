@@ -1,0 +1,6 @@
+projectKey=diaf
+serverUrl=http://localhost:9000
+serverVersion=8.5.1.38104
+dashboardUrl=http://localhost:9000/dashboard?id=diaf
+ceTaskId=AXYzrL3HB9w3mLEOKu9s
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AXYzrL3HB9w3mLEOKu9s
