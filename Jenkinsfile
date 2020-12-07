@@ -6,6 +6,14 @@ node {
         sh 'npm test'
     }
     
+    stage('SonarQube analysis') {
+        def scannerHome = tool 'sonarqube_scanner';
+        withSonarQubeEnv('sonarqube_server') { // If you have configured more than one global server connection, you can specify its name
+            println("${scannerHome}")
+            sh "${scannerHome}/bin/sonar-scanner"
+        }
+    }
+    
     stage("Build and Publish Docker Image") {
         docker.withRegistry('', 'docker_hub') {
 
